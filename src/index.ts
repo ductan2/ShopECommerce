@@ -12,14 +12,15 @@ app.use(cors({ origin: true, credentials: true }))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use("/", router)
 app.use(cookieParser())
 // app.use(cors)
 databaseServices.connect();
 app.listen(PORT, () => {
   console.log(`This is http://localhost:${PORT}`)
 })
+
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   res.status(err.status).json({ error: err.message, status: err.status })
 })
-app.use('/api', router) 
-export default app;
+
