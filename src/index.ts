@@ -5,7 +5,6 @@ import router from './routes/index.routes';
 import cookieParser from 'cookie-parser';
 import cors from "cors"
 
-
 config();
 const app = express();
 const PORT = process.env.PORT;
@@ -23,3 +22,4 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   res.status(err.status).json({ error: err.message, status: err.status })
 })
 app.use('/api', router) 
+export default app;
