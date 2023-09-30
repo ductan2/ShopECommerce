@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import { config } from 'dotenv';
-import databaseServices from './src/services/database.services';
-import router from './src/routes/index.routes';
+import databaseServices from './services/database.services';
+import router from './routes/index.routes';
 import cookieParser from 'cookie-parser';
 import cors from "cors"
 
