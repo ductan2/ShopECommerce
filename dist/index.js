@@ -15,6 +15,7 @@ const PORT = process.env.PORT;
 app.use((0, cors_1.default)({ origin: true, credentials: true }));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
+app.use("/", index_routes_1.default);
 app.use((0, cookie_parser_1.default)());
 // app.use(cors)
 database_services_1.default.connect();
@@ -24,5 +25,3 @@ app.listen(PORT, () => {
 app.use((err, req, res, next) => {
     res.status(err.status).json({ error: err.message, status: err.status });
 });
-app.use('/api', index_routes_1.default);
-exports.default = app;
